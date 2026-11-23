@@ -1,3 +1,7 @@
+
+
+HTML icon
+নামজারির_আবেদন_লিষ্ট_Updated
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -5,8 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>হিসাব খাতা PRO - প্রিমিয়াম গ্লাস</title>
   
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons (Noto Sans Bengali & Kalpurush/SolaimanLipi fallback for clear SutonnyMJ-like readability) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Firebase -->
@@ -17,128 +23,168 @@
   <style>
     /* Premium Glassmorphism Theme */
     :root {
-      --primary: #a855f7; 
-      --accent: #3b82f6;  
+      --primary: #a855f7;
+      --accent: #3b82f6;
       --danger: #ef4444; --success: #10b981; --warning: #f59e0b;
-      --text-main: #f8fafc; --text-muted: #94a3b8;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-hover: rgba(255, 255, 255, 0.08);
+      --text-main: #ffffff; --text-muted: #cbd5e1;
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --glass-hover: rgba(255, 255, 255, 0.09);
     }
     
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Hind Siliguri', sans-serif; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: 'Noto Sans Bengali', 'Kalpurush', 'SolaimanLipi', 'Siyam Rupali', 'Vrinda', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     
-    /* Updated Background - Deep Blue instead of Blackish */
+    /* Glowing Dark Background */
     body { 
-      background: linear-gradient(135deg, #1e1e2d, #1a1a2e); /* প্রিমিয়াম ডিপ-ব্লু */
+      background-color: #050511;
+      background-image: 
+        radial-gradient(circle at 10% 0%, rgba(147, 51, 234, 0.35) 0px, transparent 42%),
+        radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.28) 0px, transparent 42%),
+        radial-gradient(circle at 10% 90%, rgba(217, 119, 6, 0.22) 0px, transparent 42%);
       background-attachment: fixed;
       color: var(--text-main); 
       min-height: 100vh; 
-      zoom: 0.92; 
+      font-size: 16px;
+      line-height: 1.5;
     }
 
+    /* Core Glass Effect */
     .glass-panel { 
       background: var(--glass-bg); 
       backdrop-filter: blur(16px); 
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border); 
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35); 
       border-radius: 12px; 
     }
 
     /* Login */
-    #login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 3000; background: rgba(30, 30, 45, 0.9); backdrop-filter: blur(10px); }
-    .login-box { padding: 40px 30px; text-align: center; width: 380px; }
-    .auth-input { width: 100%; padding: 14px; margin-bottom: 15px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 8px; font-size: 15px; color: var(--text-main); outline: none; transition: 0.3s; }
-    .auth-input:focus { border-color: var(--primary); background: rgba(0,0,0,0.4); }
-    .btn-login { width: 100%; background: linear-gradient(135deg, #a855f7, #6366f1); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);}
+    #login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 3000; background: rgba(5,5,17,0.85); backdrop-filter: blur(10px); }
+    .login-box { padding: 40px 30px; text-align: center; width: 400px; max-width: 92%; }
+    .auth-input { width: 100%; padding: 14px; margin-bottom: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 8px; font-size: 16px; color: var(--text-main); outline: none; transition: 0.3s; }
+    .auth-input:focus { border-color: var(--primary); background: rgba(0,0,0,0.5); }
+    .btn-login { width: 100%; background: linear-gradient(135deg, #a855f7, #6366f1); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 17px; cursor: pointer; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);}
     .btn-login:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6); }
 
     /* Navbar */
     #app-container { display: none; flex-direction: column; padding-bottom: 30px; }
-    .navbar { background: rgba(30, 30, 45, 0.6); backdrop-filter: blur(20px); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 100; }
-    .navbar h2 { background: linear-gradient(to right, #a855f7, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px; font-weight: 800; }
-    .btn-outline { padding: 8px 15px; border: 1px solid var(--glass-border); color: var(--text-main); background: rgba(255,255,255,0.05); border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+    .navbar { background: rgba(10, 10, 22, 0.75); backdrop-filter: blur(20px); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 100; }
+    .navbar h2 { background: linear-gradient(to right, #c084fc, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px; font-weight: 800; }
+    .btn-outline { padding: 8px 16px; border: 1px solid var(--glass-border); color: var(--text-main); background: rgba(255,255,255,0.06); border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px; transition: 0.3s; }
     .btn-outline:hover { background: var(--danger); border-color: var(--danger); color: white; }
 
     /* Summary Cards */
-    .summary-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 30px; }
-    .card { padding: 25px; color: white; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; border-radius: 12px; transition: 0.3s; }
-    .card:hover { transform: translateY(-5px); background: var(--glass-hover); border-color: rgba(255,255,255,0.2); }
-    .card h3 { font-size: 15px; margin-bottom: 5px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-    .card p { font-size: 38px; font-weight: 700; background: linear-gradient(to right, #fff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .card i { font-size: 45px; background: linear-gradient(135deg, #a855f7, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.5; }
+    .summary-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 25px 30px; }
+    .card { padding: 24px; color: white; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; border-radius: 12px; transition: 0.3s; }
+    .card:hover { transform: translateY(-4px); background: var(--glass-hover); border-color: rgba(255,255,255,0.25); }
+    .card h3 { font-size: 16px; margin-bottom: 6px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.3px; }
+    .card p { font-size: 36px; font-weight: 800; color: #ffffff; }
+    .card i { font-size: 44px; background: linear-gradient(135deg, #a855f7, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.6; }
 
-    /* Action Bar */
-    .action-bar { display: flex; justify-content: space-between; align-items: center; margin: 0 30px 20px 30px; }
-    .search-box { flex: 1; max-width: 450px; position: relative; }
-    .search-box input { width: 100%; padding: 12px 15px 12px 40px; border-radius: 30px; border: 1px solid var(--glass-border); font-size: 15px; background: var(--glass-bg); color: var(--text-main); outline: none; backdrop-filter: blur(10px); transition: 0.3s;}
-    .search-box input:focus { border-color: var(--primary); background: rgba(0,0,0,0.3); }
-    .search-box i { position: absolute; left: 16px; top: 14px; color: var(--text-muted); font-size: 15px; }
+    /* Action Bar & Filters */
+    .action-bar { display: flex; justify-content: space-between; align-items: center; margin: 0 30px 20px 30px; flex-wrap: wrap; gap: 15px; }
+    .search-filter-group { display: flex; align-items: center; gap: 12px; flex: 1; flex-wrap: wrap; }
+    .search-box { flex: 1; min-width: 280px; max-width: 440px; position: relative; }
+    .search-box input { width: 100%; padding: 12px 16px 12px 42px; border-radius: 30px; border: 1px solid var(--glass-border); font-size: 15.5px; background: rgba(0, 0, 0, 0.35); color: #ffffff; outline: none; backdrop-filter: blur(10px); transition: 0.3s;}
+    .search-box input::placeholder { color: #94a3b8; }
+    .search-box input:focus { border-color: var(--primary); background: rgba(0,0,0,0.5); }
+    .search-box i { position: absolute; left: 16px; top: 15px; color: var(--text-muted); font-size: 15px; }
+
+    .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { padding: 9px 16px; border-radius: 20px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: #e2e8f0; font-size: 14.5px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .filter-btn:hover { background: var(--glass-hover); color: #fff; }
+    .filter-btn.active { background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35); }
     
-    .btn-primary { background: linear-gradient(135deg, #a855f7, #8b5cf6); color: white; padding: 12px 25px; border: none; border-radius: 30px; cursor: pointer; font-size: 15px; font-weight: 600; transition: 0.3s; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5); }
+    .btn-primary { background: linear-gradient(135deg, #a855f7, #8b5cf6); color: white; padding: 12px 24px; border: none; border-radius: 30px; cursor: pointer; font-size: 15.5px; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35); white-space: nowrap; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(168, 85, 247, 0.55); }
 
-    /* Table */
+    /* Table - Crystal Clear Typography */
     .table-container { margin: 0 30px; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; }
+    table { width: 100%; border-collapse: collapse; min-width: 860px; }
     th, td { padding: 16px; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--glass-border); }
-    th { font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+    th { font-weight: 700; color: #e2e8f0; font-size: 14.5px; background: rgba(255, 255, 255, 0.03); letter-spacing: 0.3px; }
+    td { font-size: 15.5px; color: #f8fafc; }
     tbody tr { transition: 0.2s; }
     tbody tr:hover { background-color: var(--glass-hover); }
     
-    .client-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); color: var(--text-muted); flex-shrink: 0;}
-    .app-no-highlight { color: #f472b6; font-weight: 800; font-size: 15px; }
-    .case-no-badge { display: inline-block; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; margin-top: 6px; }
-    
-    .status-badge { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; display: inline-block; margin-bottom: 6px; }
-    .status-paid { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-    .status-due { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    /* বড় ও স্পষ্ট তারিখের ব্যাজ */
+    .date-tag { 
+      display: inline-block; 
+      margin-top: 6px; 
+      font-size: 14px; 
+      font-weight: 600;
+      color: #fde68a; 
+      background: rgba(245, 158, 11, 0.16); 
+      padding: 5px 11px; 
+      border-radius: 6px; 
+      border: 1px solid rgba(245, 158, 11, 0.4); 
+      white-space: nowrap;
+    }
 
-    .action-btn { padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; margin-right: 5px; font-size: 13px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); transition: 0.3s; }
+    .client-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); color: var(--text-muted); flex-shrink: 0; }
+    .client-name-text { color: #ffffff; font-size: 16.5px; font-weight: 700; }
+    .mouja-text { color: #f1f5f9; font-size: 15.5px; font-weight: 600; }
+    .nid-text { font-size: 14px; color: #cbd5e1; display: inline-block; margin-top: 3px; }
+    
+    .app-no-highlight { color: #f472b6; font-weight: 800; font-size: 16px; letter-spacing: 0.3px; }
+    .case-no-badge { display: inline-block; background: rgba(59, 130, 246, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); padding: 4px 10px; border-radius: 6px; font-size: 13.5px; font-weight: 700; margin-top: 6px; }
+    
+    .status-badge { padding: 5px 12px; border-radius: 20px; font-size: 13.5px; font-weight: 700; display: inline-block; margin-bottom: 6px; }
+    .status-paid { background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .status-due { background: rgba(239, 68, 68, 0.18); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+
+    .action-btn { padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; margin-right: 5px; font-size: 14px; background: rgba(255,255,255,0.07); border: 1px solid var(--glass-border); transition: 0.3s; }
     .btn-view { color: #c084fc; } .btn-view:hover { background: #c084fc; color: #000; }
     .btn-edit { color: #38bdf8; } .btn-edit:hover { background: #38bdf8; color: #000; }
     .btn-delete { color: #f87171; } .btn-delete:hover { background: #f87171; color: #000; }
+    .btn-whatsapp { color: #4ade80; } .btn-whatsapp:hover { background: #4ade80; color: #000; }
 
     /* Modals */
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; }
-    .modal-content { background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); color: var(--text-main); width: 600px; border-radius: 16px; padding: 30px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 15px; }
+    .modal-content { background: rgba(15, 15, 28, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); color: var(--text-main); width: 640px; max-width: 100%; border-radius: 16px; padding: 30px; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.6);}
     
+    /* Scrollbar */
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.45); }
 
-    .close-btn { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.1); color: var(--text-main); border: none; font-size: 18px; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; transition: 0.3s;}
+    .close-btn { position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.1); color: var(--text-main); border: none; font-size: 18px; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; transition: 0.3s;}
     .close-btn:hover { background: var(--danger); color: white; }
     
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;}
-    .form-control { width: 100%; padding: 12px; border: 1px solid var(--glass-border); border-radius: 8px; outline: none; font-size: 14px; background: rgba(0,0,0,0.2); color: var(--text-main); transition: 0.3s; backdrop-filter: blur(5px);} 
-    .form-control:focus { border-color: var(--primary); background: rgba(0,0,0,0.4); box-shadow: 0 0 10px rgba(168, 85, 247, 0.2); }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 14.5px; font-weight: 600; margin-bottom: 6px; color: #e2e8f0; }
+    .form-control { width: 100%; padding: 12px 14px; border: 1px solid var(--glass-border); border-radius: 8px; outline: none; font-size: 15.5px; background: rgba(0,0,0,0.35); color: #ffffff; transition: 0.3s; color-scheme: dark; }
+    .form-control:focus { border-color: var(--primary); background: rgba(0,0,0,0.55); box-shadow: 0 0 10px rgba(168, 85, 247, 0.25); }
     .form-row { display: flex; gap: 15px; }
     
-    /* File Upload Box & Cross icon updated */
-    .file-upload-box { background: rgba(0,0,0,0.2); border: 1px dashed var(--glass-border); padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; }
-    .file-upload-box input { width: 100%; font-size: 13px; color: var(--text-muted); }
-    .clear-file-btn { color: var(--danger); cursor: pointer; padding: 5px; font-size: 16px; border-radius: 50%; transition: 0.3s; }
-    .clear-file-btn:hover { background: rgba(239, 68, 68, 0.2); }
+    .file-upload-box { background: rgba(0,0,0,0.25); border: 1px dashed var(--glass-border); padding: 10px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; }
+    .file-upload-box input { width: 100%; font-size: 14px; color: var(--text-muted); }
     
+    /* View Modal Extra */
     .view-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-    .view-box { background: rgba(0,0,0,0.2); padding: 12px 15px; border-radius: 10px; border: 1px solid var(--glass-border); }
-    .view-box span { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;}
-    .view-box strong { font-size: 15px; color: var(--text-main); }
+    .view-box { background: rgba(0,0,0,0.28); padding: 13px 16px; border-radius: 10px; border: 1px solid var(--glass-border); }
+    .view-box span { display: block; font-size: 13.5px; color: var(--text-muted); margin-bottom: 4px; }
+    .view-box strong { font-size: 16px; color: #ffffff; font-weight: 700; }
     .pro-actions { display: flex; gap: 12px; margin-top: 25px; border-top: 1px solid var(--glass-border); padding-top: 20px; }
 
-    /* Fix for Long Name Table Formatting */
-    .client-name-text {
-      color: #fff; 
-      font-size: 15px; 
-      max-width: 250px; /* নাম বেশি বড় হলে এই সাইজের পর নিচে চলে যাবে */
-      display: inline-block;
-      word-wrap: break-word;
-      white-space: normal;
-      line-height: 1.4;
+    /* Responsive Media Queries */
+    @media (max-width: 768px) {
+      .summary-container { grid-template-columns: 1fr; padding: 20px; }
+      .action-bar { margin: 0 20px 20px 20px; }
+      .table-container { margin: 0 20px; }
+      .navbar { padding: 15px 20px; }
+      .navbar h2 { font-size: 20px; }
+      .form-row { flex-direction: column; gap: 0; }
+      .view-grid { grid-template-columns: 1fr; }
+      .pro-actions { flex-direction: column; }
     }
   </style>
 </head>
@@ -147,19 +193,10 @@
   <!-- Login Screen -->
   <div id="login-screen">
     <div class="login-box glass-panel">
-      <h2 style="margin-bottom: 25px; font-size: 28px; background: linear-gradient(to right, #a855f7, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        <i class="fa-solid fa-scale-balanced"></i> হিসাব খাতা PRO
-      </h2>
-      
-      <form onsubmit="event.preventDefault(); loginWithEmail();">
-        <input type="email" id="loginEmail" class="auth-input" placeholder="ইমেইল অ্যাড্রেস" autocomplete="username" required>
-        <input type="password" id="loginPassword" class="auth-input" placeholder="পাসওয়ার্ড" autocomplete="current-password" required>
-        <button type="submit" class="btn-login">লগইন করুন</button>
-      </form>
-
-      <p style="margin-top: 15px; font-size: 14px;">
-        <a href="#" onclick="forgotPassword()" style="color: var(--accent); text-decoration: none;">পাসওয়ার্ড ভুলে গেছেন?</a>
-      </p>
+      <h2 style="margin-bottom: 25px; font-size: 28px; background: linear-gradient(to right, #c084fc, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><i class="fa-solid fa-scale-balanced"></i> হিসাব খাতা PRO</h2>
+      <input type="email" id="loginEmail" class="auth-input" placeholder="ইমেইল অ্যাড্রেস">
+      <input type="password" id="loginPassword" class="auth-input" placeholder="পাসওয়ার্ড">
+      <button class="btn-login" onclick="loginWithEmail()">লগইন করুন</button>
     </div>
   </div>
 
@@ -186,7 +223,7 @@
         <div>
             <h3>স্টোরেজ ব্যবহার</h3>
             <p id="storageUsed">0 MB</p>
-            <div style="font-size: 11px; margin-top: 5px; color: var(--text-muted);">আনুমানিক হিসাব</div>
+            <div style="font-size: 12.5px; margin-top: 5px; color: var(--text-muted);">আনুমানিক হিসাব</div>
         </div>
         <i class="fa-solid fa-cloud"></i>
       </div>
@@ -194,9 +231,17 @@
 
     <!-- Action Bar -->
     <div class="action-bar">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="নাম, মোবাইল, NID, বা কেস নং দিয়ে খুঁজুন..." onkeyup="searchClients()">
+      <div class="search-filter-group">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="নাম, মোবাইল, NID, মৌজা, আবেদন বা কেস নং..." onkeyup="applyFilters()">
+        </div>
+        <div class="filter-pills">
+          <button class="filter-btn active" onclick="setFilter('all', this)">সব (<span id="countAll">0</span>)</button>
+          <button class="filter-btn" onclick="setFilter('due', this)">বকেয়া (<span id="countDue">0</span>)</button>
+          <button class="filter-btn" onclick="setFilter('paid', this)">পরিশোধিত (<span id="countPaid">0</span>)</button>
+          <button class="filter-btn" onclick="setFilter('nocase', this)">কেস নং বাকি (<span id="countNoCase">0</span>)</button>
+        </div>
       </div>
       <button class="btn-primary" onclick="openAddModal()"><i class="fa-solid fa-user-plus"></i> নতুন এন্ট্রি</button>
     </div>
@@ -206,7 +251,7 @@
       <table>
         <thead>
           <tr>
-            <th>ক্রমিক</th>
+            <th>ক্রমিক ও তারিখ</th>
             <th>ছবি ও আবেদনকারী</th>
             <th>মৌজা ও এনআইডি</th>
             <th>আবেদন ও কেস নম্বর</th>
@@ -223,25 +268,29 @@
   <div id="addModal" class="modal-overlay">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('addModal')"><i class="fa-solid fa-xmark"></i></button>
-      <h3 style="margin-bottom: 20px; font-size: 20px; color: #c084fc;"><i class="fa-solid fa-user-plus"></i> নতুন ক্লায়েন্ট যুক্ত করুন</h3>
+      <h3 style="margin-bottom: 20px; font-size: 21px; color: #c084fc;"><i class="fa-solid fa-user-plus"></i> নতুন ক্লায়েন্ট যুক্ত করুন</h3>
       <form id="clientForm">
         <div class="form-row">
-          <div class="form-group" style="flex:2;"><label>আবেদনকারীর নাম</label><input type="text" id="cName" class="form-control"></div>
-          <div class="form-group" style="flex:1;"><label>মোবাইল</label><input type="text" id="cMobile" class="form-control"></div>
+          <div class="form-group" style="flex: 1.4; min-width: 185px;">
+            <label style="color:#fbbf24;"><i class="fa-solid fa-calendar-days"></i> কাজের তারিখ</label>
+            <input type="date" id="cWorkDate" class="form-control" style="font-size: 16px; font-weight: 700; padding: 12px;" required>
+          </div>
+          <div class="form-group" style="flex: 2;">
+            <label>আবেদনকারীর নাম</label>
+            <input type="text" id="cName" class="form-control">
+          </div>
         </div>
         <div class="form-row">
+          <div class="form-group" style="flex:1;"><label>মোবাইল</label><input type="text" id="cMobile" class="form-control"></div>
           <div class="form-group" style="flex:1;"><label>এনআইডি (NID)</label><input type="text" id="cNid" class="form-control"></div>
-          <div class="form-group" style="flex:1;"><label>মৌজা</label><input type="text" id="cMouja" class="form-control"></div>
+          <div class="form-group" style="flex:1;"><label>মৌজা ও জে.এল নং</label><input type="text" id="cMouja" class="form-control"></div>
         </div>
         <div class="form-row">
           <div class="form-group" style="flex:1;"><label style="color:#f472b6;">আবেদন নং</label><input type="text" id="cAppNo" class="form-control"></div>
           <div class="form-group" style="flex:2;"><label style="color:#60a5fa;">কেস নম্বর</label><input type="text" id="cCaseNo" class="form-control"></div>
         </div>
         <div class="form-group"><label><i class="fa-solid fa-image"></i> প্রোফাইল ছবি</label>
-          <div class="file-upload-box">
-            <input type="file" id="cPhoto" accept="image/*">
-            <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('cPhoto').value=''"></i>
-          </div>
+          <div class="file-upload-box"><input type="file" id="cPhoto" accept="image/*"></div>
         </div>
         <div class="form-group"><label><i class="fa-solid fa-users"></i> শরীকদের নাম</label><textarea id="cPartners" class="form-control" rows="2"></textarea></div>
         
@@ -251,18 +300,8 @@
         </div>
 
         <div class="form-row">
-          <div class="form-group" style="flex:1;"><label><i class="fa-solid fa-file-pdf"></i> খতিয়ান</label>
-            <div class="file-upload-box">
-              <input type="file" id="cKhatian" accept="image/*,.pdf">
-              <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('cKhatian').value=''"></i>
-            </div>
-          </div>
-          <div class="form-group" style="flex:1;"><label><i class="fa-solid fa-file-image"></i> ডিসিআর</label>
-            <div class="file-upload-box">
-              <input type="file" id="cDcr" accept="image/*,.pdf">
-              <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('cDcr').value=''"></i>
-            </div>
-          </div>
+          <div class="form-group" style="flex:1;"><label><i class="fa-solid fa-file-pdf"></i> খতিয়ান</label><div class="file-upload-box"><input type="file" id="cKhatian" accept="image/*,.pdf"></div></div>
+          <div class="form-group" style="flex:1;"><label><i class="fa-solid fa-file-image"></i> ডিসিআর</label><div class="file-upload-box"><input type="file" id="cDcr" accept="image/*,.pdf"></div></div>
         </div>
         <button type="submit" id="submitBtn" class="btn-primary" style="width:100%; margin-top: 10px;">সেভ করুন</button>
       </form>
@@ -273,30 +312,31 @@
   <div id="editModal" class="modal-overlay">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('editModal')"><i class="fa-solid fa-xmark"></i></button>
-      <h3 style="margin-bottom: 20px; color:#38bdf8; font-size: 20px;"><i class="fa-solid fa-pen-to-square"></i> তথ্য আপডেট</h3>
+      <h3 style="margin-bottom: 20px; color:#38bdf8; font-size: 21px;"><i class="fa-solid fa-pen-to-square"></i> তথ্য আপডেট</h3>
       <form id="editForm">
         <input type="hidden" id="eId">
         <div class="form-row">
-          <div class="form-group" style="flex:2;"><label>নাম</label><input type="text" id="eName" class="form-control"></div>
-          <div class="form-group" style="flex:1;"><label>মোবাইল</label><input type="text" id="eMobile" class="form-control"></div>
+          <div class="form-group" style="flex: 1.4; min-width: 185px;">
+            <label style="color:#fbbf24;"><i class="fa-solid fa-calendar-days"></i> কাজের তারিখ</label>
+            <input type="date" id="eWorkDate" class="form-control" style="font-size: 16px; font-weight: 700; padding: 12px;">
+          </div>
+          <div class="form-group" style="flex: 2;">
+            <label>নাম</label>
+            <input type="text" id="eName" class="form-control">
+          </div>
         </div>
         <div class="form-row">
+          <div class="form-group" style="flex:1;"><label>মোবাইল</label><input type="text" id="eMobile" class="form-control"></div>
           <div class="form-group" style="flex:1;"><label>এনআইডি</label><input type="text" id="eNid" class="form-control"></div>
-          <div class="form-group" style="flex:1;"><label>মৌজা</label><input type="text" id="eMouja" class="form-control"></div>
+          <div class="form-group" style="flex:1;"><label>মৌজা ও জে.এল নং</label><input type="text" id="eMouja" class="form-control"></div>
         </div>
         <div class="form-row">
           <div class="form-group" style="flex:1;"><label>আবেদন নং</label><input type="text" id="eAppNo" class="form-control"></div>
           <div class="form-group" style="flex:2;"><label>কেস নম্বর</label><input type="text" id="eCaseNo" class="form-control"></div>
         </div>
-        <div class="form-group"><label>ছবি পরিবর্তন</label>
-          <div class="file-upload-box">
-            <input type="file" id="ePhoto" accept="image/*">
-            <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('ePhoto').value=''"></i>
-          </div>
-        </div>
-        
         <div class="form-group"><label><i class="fa-solid fa-users"></i> শরীকদের নাম</label><textarea id="ePartners" class="form-control" rows="2"></textarea></div>
-
+        <div class="form-group"><label>ছবি পরিবর্তন</label><div class="file-upload-box"><input type="file" id="ePhoto" accept="image/*"></div></div>
+        
         <div class="form-row">
           <div class="form-group" style="flex:1;"><label>মোট ফি</label><input type="number" id="eContract" class="form-control"></div>
           <div class="form-group" style="flex:1;"><label>জমা অর্থ</label><input type="number" id="ePaid" class="form-control"></div>
@@ -305,17 +345,11 @@
         <div class="form-row">
           <div class="form-group" style="flex:1;">
             <label><i class="fa-solid fa-file-pdf"></i> খতিয়ান পরিবর্তন/যোগ</label>
-            <div class="file-upload-box">
-              <input type="file" id="eKhatian" accept="image/*,.pdf">
-              <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('eKhatian').value=''"></i>
-            </div>
+            <div class="file-upload-box"><input type="file" id="eKhatian" accept="image/*,.pdf"></div>
           </div>
           <div class="form-group" style="flex:1;">
             <label><i class="fa-solid fa-file-image"></i> ডিসিআর পরিবর্তন/যোগ</label>
-            <div class="file-upload-box">
-              <input type="file" id="eDcr" accept="image/*,.pdf">
-              <i class="fa-solid fa-xmark clear-file-btn" onclick="document.getElementById('eDcr').value=''"></i>
-            </div>
+            <div class="file-upload-box"><input type="file" id="eDcr" accept="image/*,.pdf"></div>
           </div>
         </div>
 
@@ -324,29 +358,46 @@
     </div>
   </div>
 
-  <!-- View Modal (Keep exactly as before) -->
+  <!-- View Modal -->
   <div id="viewModal" class="modal-overlay">
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal('viewModal')"><i class="fa-solid fa-xmark"></i></button>
+      
       <div style="display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px;">
         <div id="vPhotoContainer"></div>
-        <div><h2 id="vName" style="color: #fff; font-size: 22px; margin-bottom: 4px;">নাম</h2><span style="font-size: 14px; color: var(--text-muted);">আবেদন নং: <span id="vAppNo" style="color: #f472b6; font-weight: bold;"></span></span></div>
+        <div>
+          <h2 id="vName" style="color: #fff; font-size: 23px; margin-bottom: 4px;">নাম</h2>
+          <span style="font-size: 15px; color: var(--text-muted);">আবেদন নং: <span id="vAppNo" style="color: #f472b6; font-weight: bold;"></span></span>
+          <div style="font-size: 15px; color: #fde68a; font-weight: 600; margin-top: 5px;"><i class="fa-solid fa-calendar-check"></i> কাজের তারিখ: <span id="vWorkDate"></span></div>
+        </div>
       </div>
+      
       <div class="view-grid">
         <div class="view-box"><span>মোবাইল নম্বর</span><strong id="vMobile"></strong></div>
         <div class="view-box"><span>এনআইডি (NID)</span><strong id="vNid"></strong></div>
         <div class="view-box"><span>মৌজা</span><strong id="vMouja"></strong></div>
         <div class="view-box"><span>কেস নম্বর</span><strong id="vCaseNo" style="color: #60a5fa;"></strong></div>
       </div>
+      
       <div class="view-box" style="margin-top: 15px; border-left: 3px solid #a855f7;">
         <span><i class="fa-solid fa-users"></i> গ্রহিতাদের নাম (শরীক)</span><strong id="vPartners"></strong>
       </div>
+
       <div style="display: flex; gap: 12px; margin-top: 15px;">
-        <div class="view-box" style="flex:1; background:rgba(59, 130, 246, 0.1); border-color:rgba(59, 130, 246, 0.2);"><span style="color:#93c5fd;">সর্বমোট ফি</span><strong style="color:#fff; font-size:18px;">৳<span id="vTotal"></span></strong></div>
-        <div class="view-box" style="flex:1; background:rgba(16, 185, 129, 0.1); border-color:rgba(16, 185, 129, 0.2);"><span style="color:#6ee7b7;">জমা</span><strong style="color:#fff; font-size:18px;">৳<span id="vPaid"></span></strong></div>
-        <div class="view-box" style="flex:1; background:rgba(239, 68, 68, 0.1); border-color:rgba(239, 68, 68, 0.2);"><span style="color:#fca5a5;">বকেয়া</span><strong id="vDueText" style="color:#f87171; font-size:18px;"></strong></div>
+        <div class="view-box" style="flex:1; background:rgba(59, 130, 246, 0.12); border-color:rgba(59, 130, 246, 0.25);">
+          <span style="color:#93c5fd;">সর্বমোট ফি</span><strong style="color:#fff; font-size:19px;">৳<span id="vTotal"></span></strong>
+        </div>
+        <div class="view-box" style="flex:1; background:rgba(16, 185, 129, 0.12); border-color:rgba(16, 185, 129, 0.25);">
+          <span style="color:#6ee7b7;">জমা</span><strong style="color:#fff; font-size:19px;">৳<span id="vPaid"></span></strong>
+        </div>
+        <div class="view-box" style="flex:1; background:rgba(239, 68, 68, 0.12); border-color:rgba(239, 68, 68, 0.25);">
+          <span style="color:#fca5a5;">বকেয়া</span><strong id="vDueText" style="color:#f87171; font-size:19px;"></strong>
+        </div>
       </div>
+
       <div style="display: flex; gap: 12px; margin-top: 15px;" id="vLinks"></div>
+
+      <!-- Action Buttons -->
       <div class="pro-actions" id="proActionsContainer"></div>
     </div>
   </div>
@@ -367,9 +418,55 @@
     if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth(); const db = firebase.firestore();
 
-    function openAddModal() { document.getElementById('addModal').style.display = 'flex'; }
-    function closeModal(id) { document.getElementById(id).style.display = 'none'; if(id === 'addModal') document.getElementById('clientForm').reset(); }
+    // বাংলা সংখ্যাকে ইংরেজিতে রূপান্তর করার ফাংশন (সার্চের সুবিধার জন্য)
+    function normalizeDigits(str) {
+      if (!str) return "";
+      const bnToEn = { '০':'0', '১':'1', '২':'2', '৩':'3', '৪':'4', '৫':'5', '৬':'6', '৭':'7', '৮':'8', '৯':'9' };
+      return String(str).replace(/[০-৯]/g, match => bnToEn[match]);
+    }
 
+    // আজকের তারিখ YYYY-MM-DD ফরম্যাটে পাওয়ার ফাংশন
+    function getTodayDateISO() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    // ক্লায়েন্টের তারিখ বের করা (নতুন workDate থাকলে সেটি, নাহলে পুরনো timestamp থেকে)
+    function getClientDateISO(c) {
+      if (c.workDate) return c.workDate;
+      if (c.timestamp && typeof c.timestamp.toDate === 'function') {
+        const dt = c.timestamp.toDate();
+        const y = dt.getFullYear();
+        const m = String(dt.getMonth() + 1).padStart(2, '0');
+        const d = String(dt.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+      return "";
+    }
+
+    // তারিখ বাংলায় সুন্দরভাবে দেখানোর ফাংশন
+    function formatDisplayDate(isoDate) {
+      if (!isoDate) return "তারিখ নেই";
+      const parts = isoDate.split('-');
+      if (parts.length !== 3) return isoDate;
+      const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
+      return dateObj.toLocaleDateString('bn-BD', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    // Modal Handlers
+    function openAddModal() { 
+      document.getElementById('cWorkDate').value = getTodayDateISO();
+      document.getElementById('addModal').style.display = 'flex'; 
+    }
+    function closeModal(id) { 
+      document.getElementById(id).style.display = 'none'; 
+      if(id === 'addModal') document.getElementById('clientForm').reset(); 
+    }
+
+    // Image Compression
     function compressImage(file, maxDimension = 400, quality = 0.6) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader(); reader.readAsDataURL(file);
@@ -388,232 +485,492 @@
       });
     }
 
-    // Auth & Session Persistence (লগইন তথ্য যেন সেভ থাকে)
+    // Auth
     auth.onAuthStateChanged(user => {
       if (user) { document.getElementById('login-screen').style.display = 'none'; document.getElementById('app-container').style.display = 'flex'; loadData(); } 
       else { document.getElementById('login-screen').style.display = 'flex'; document.getElementById('app-container').style.display = 'none'; }
     });
-    
     function loginWithEmail() {
-      // লোকাল সেশনে ডাটা সেভ রাখার কোড যোগ করা হলো
-      auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-        .then(() => {
-          return auth.signInWithEmailAndPassword(document.getElementById('loginEmail').value, document.getElementById('loginPassword').value);
-        })
-        .catch(err => alert("ভুল তথ্য বা সমস্যা: " + err.message));
+      auth.signInWithEmailAndPassword(document.getElementById('loginEmail').value, document.getElementById('loginPassword').value).catch(err => alert("ভুল তথ্য!"));
     }
-    
     function logout() { if(confirm("লগআউট করতে চান?")) auth.signOut(); }
 
-    function forgotPassword() {
-      const email = document.getElementById('loginEmail').value;
-      if (!email) { alert("দয়া করে ইমেইল বক্সে আপনার ইমেইলটি লিখুন, তারপর 'পাসওয়ার্ড ভুলে গেছেন?' লিংকে ক্লিক করুন।"); return; }
-      auth.sendPasswordResetEmail(email).then(() => { alert("আপনার ইমেইলে পাসওয়ার্ড রিসেট লিংক পাঠানো হয়েছে।"); }).catch((error) => { alert("ত্রুটি: " + error.message); });
-    }
-
+    // Upload to Cloudinary
     function uploadToCloudinary(file, onProgress) {
       return new Promise((resolve, reject) => {
-        const formData = new FormData(); formData.append("file", file); formData.append("upload_preset", UPLOAD_PRESET);
-        const xhr = new XMLHttpRequest(); xhr.open("POST", `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`);
-        xhr.upload.onprogress = (event) => { if (event.lengthComputable && onProgress) onProgress(Math.round((event.loaded / event.total) * 100)); };
-        xhr.onload = () => { if (xhr.status >= 200 && xhr.status < 300) resolve(JSON.parse(xhr.responseText).secure_url); else reject("Upload failed"); };
-        xhr.onerror = () => reject("Network error"); xhr.send(formData);
+        const formData = new FormData(); 
+        formData.append("file", file); 
+        formData.append("upload_preset", UPLOAD_PRESET);
+        
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`);
+        
+        xhr.upload.onprogress = (event) => {
+          if (event.lengthComputable && onProgress) {
+            const percentComplete = Math.round((event.loaded / event.total) * 100);
+            onProgress(percentComplete);
+          }
+        };
+        
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            const response = JSON.parse(xhr.responseText);
+            resolve(response.secure_url);
+          } else {
+            reject("Upload failed");
+          }
+        };
+        xhr.onerror = () => reject("Network error");
+        xhr.send(formData);
       });
     }
 
+    // SHA-1 Signature Generator
     async function generateSHA1(str) {
-      const buffer = new TextEncoder("utf-8").encode(str); const hash = await crypto.subtle.digest("SHA-1", buffer);
+      const buffer = new TextEncoder("utf-8").encode(str);
+      const hash = await crypto.subtle.digest("SHA-1", buffer);
       return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
+    // Delete from Cloudinary (Image & PDF/Raw support)
     async function deleteFromCloudinary(url) {
       if (!url) return;
       try {
-        const parts = url.split('/upload/'); if(parts.length < 2) return;
-        let path = parts[1].replace(/^v\d+\//, ''); const publicId = path.substring(0, path.lastIndexOf('.'));
+        const parts = url.split('/upload/');
+        if(parts.length < 2) return;
+        let path = parts[1].replace(/^v\d+\//, '');
+        const publicId = path.substring(0, path.lastIndexOf('.'));
         const timestamp = Math.round((new Date).getTime() / 1000);
-        const signature = await generateSHA1(`public_id=${publicId}&timestamp=${timestamp}${CLOUD_API_SECRET}`);
-        const formData = new FormData(); formData.append("public_id", publicId); formData.append("signature", signature); formData.append("api_key", CLOUD_API_KEY); formData.append("timestamp", timestamp);
-        await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/destroy`, { method: 'POST', body: formData });
+        
+        const stringToSign = `public_id=${publicId}&timestamp=${timestamp}${CLOUD_API_SECRET}`;
+        const signature = await generateSHA1(stringToSign);
+
+        const formData = new FormData();
+        formData.append("public_id", publicId);
+        formData.append("signature", signature);
+        formData.append("api_key", CLOUD_API_KEY);
+        formData.append("timestamp", timestamp);
+
+        const resourceType = url.toLowerCase().endsWith('.pdf') ? 'raw' : 'image';
+        await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${resourceType}/destroy`, { method: 'POST', body: formData });
       } catch (error) { console.error("Cloudinary Delete Error:", error); }
     }
 
+    // Add Client
     document.getElementById('clientForm').addEventListener('submit', async function(e) {
-      e.preventDefault(); const btn = document.getElementById('submitBtn'); btn.disabled = true;
+      e.preventDefault(); 
+      const btn = document.getElementById('submitBtn'); 
+      btn.disabled = true;
+      
       try {
-        const pFile = document.getElementById('cPhoto').files[0]; const kFile = document.getElementById('cKhatian').files[0]; const dFile = document.getElementById('cDcr').files[0];
+        const pFile = document.getElementById('cPhoto').files[0];
+        const kFile = document.getElementById('cKhatian').files[0];
+        const dFile = document.getElementById('cDcr').files[0];
         let pUrl = null, kUrl = null, dUrl = null;
-        if (pFile) { btn.innerHTML = 'ছবি আপলোড হচ্ছে...'; pUrl = await uploadToCloudinary(await compressImage(pFile), (p) => { btn.innerHTML = `ছবি (${p}%)...`; }); }
-        if (kFile) { btn.innerHTML = 'খতিয়ান আপলোড হচ্ছে...'; kUrl = await uploadToCloudinary(kFile, (p) => { btn.innerHTML = `খতিয়ান (${p}%)...`; }); }
-        if (dFile) { btn.innerHTML = 'ডিসিআর আপলোড হচ্ছে...'; dUrl = await uploadToCloudinary(dFile, (p) => { btn.innerHTML = `ডিসিআর (${p}%)...`; }); }
+
+        if (pFile) {
+          btn.innerHTML = 'ছবি আপলোড হচ্ছে (0%)...';
+          pUrl = await uploadToCloudinary(await compressImage(pFile), (percent) => { btn.innerHTML = `ছবি আপলোড হচ্ছে (${percent}%)...`; });
+        }
+        if (kFile) {
+          btn.innerHTML = 'খতিয়ান আপলোড হচ্ছে (0%)...';
+          kUrl = await uploadToCloudinary(kFile, (percent) => { btn.innerHTML = `খতিয়ান আপলোড হচ্ছে (${percent}%)...`; });
+        }
+        if (dFile) {
+          btn.innerHTML = 'ডিসিআর আপলোড হচ্ছে (0%)...';
+          dUrl = await uploadToCloudinary(dFile, (percent) => { btn.innerHTML = `ডিসিআর আপলোড হচ্ছে (${percent}%)...`; });
+        }
 
         btn.innerHTML = 'ডেটাবেসে সেভ হচ্ছে...';
         await db.collection("clients").add({
-          name: document.getElementById('cName').value, nid: document.getElementById('cNid').value, mouja: document.getElementById('cMouja').value,
-          photoUrl: pUrl, partners: document.getElementById('cPartners').value, mobile: document.getElementById('cMobile').value,
-          appNo: document.getElementById('cAppNo').value, caseNo: document.getElementById('cCaseNo').value, 
-          contract: parseFloat(document.getElementById('cContract').value) || 0, paid: parseFloat(document.getElementById('cPaid').value) || 0,
-          khatianUrl: kUrl, dcrUrl: dUrl, timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          workDate: document.getElementById('cWorkDate').value || getTodayDateISO(),
+          name: document.getElementById('cName').value.trim(), 
+          nid: document.getElementById('cNid').value.trim(), 
+          mouja: document.getElementById('cMouja').value.trim(),
+          photoUrl: pUrl, 
+          partners: document.getElementById('cPartners').value.trim(), 
+          mobile: document.getElementById('cMobile').value.trim(),
+          appNo: document.getElementById('cAppNo').value.trim(), 
+          caseNo: document.getElementById('cCaseNo').value.trim(), 
+          contract: parseFloat(document.getElementById('cContract').value) || 0, 
+          paid: parseFloat(document.getElementById('cPaid').value) || 0,
+          khatianUrl: kUrl, 
+          dcrUrl: dUrl, 
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         closeModal('addModal');
-      } catch (error) { alert("সমস্যা: " + error.message); } finally { btn.innerHTML = 'সেভ করুন'; btn.disabled = false; }
+      } catch (error) { 
+        alert("সমস্যা: " + error.message); 
+      } finally { 
+        btn.innerHTML = 'সেভ করুন'; 
+        btn.disabled = false; 
+      }
     });
 
+    // Load Data
     let allClients = [];
+    let currentFilter = 'all';
+
     function loadData() {
       db.collection("clients").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
-        allClients = []; let todayCount = 0; let estStorageMB = 0; const today = new Date().toDateString();
+        allClients = []; 
+        let todayCount = 0; 
+        let dueCount = 0;
+        let paidCount = 0;
+        let noCaseCount = 0;
+        let estStorageMB = 0; 
+        const todayISO = getTodayDateISO();
+        
         snapshot.forEach((doc) => {
-          const data = doc.data(); allClients.push({ id: doc.id, ...data });
-          if(data.timestamp && data.timestamp.toDate().toDateString() === today) todayCount++;
-          if(data.photoUrl) estStorageMB += 0.15; if(data.khatianUrl) estStorageMB += 0.50; if(data.dcrUrl) estStorageMB += 0.50; 
+          const data = doc.data(); 
+          const item = { id: doc.id, ...data };
+          allClients.push(item);
+
+          const itemDate = getClientDateISO(item);
+          if(itemDate === todayISO) todayCount++;
+          
+          const due = (item.contract || 0) - (item.paid || 0);
+          if (due > 0) dueCount++; else paidCount++;
+
+          const caseVal = (item.caseNo || item.subject || "").trim();
+          if (!caseVal || caseVal === "-") noCaseCount++;
+
+          if(item.photoUrl) estStorageMB += 0.15; 
+          if(item.khatianUrl) estStorageMB += 0.50; 
+          if(item.dcrUrl) estStorageMB += 0.50; 
         });
-        document.getElementById('totalClients').innerText = allClients.length; document.getElementById('todayEntries').innerText = todayCount; document.getElementById('storageUsed').innerText = estStorageMB.toFixed(2) + " MB";
-        renderTable(allClients);
+        
+        document.getElementById('totalClients').innerText = allClients.length;
+        document.getElementById('todayEntries').innerText = todayCount;
+        document.getElementById('storageUsed').innerText = estStorageMB.toFixed(2) + " MB";
+
+        document.getElementById('countAll').innerText = allClients.length;
+        document.getElementById('countDue').innerText = dueCount;
+        document.getElementById('countPaid').innerText = paidCount;
+        document.getElementById('countNoCase').innerText = noCaseCount;
+        
+        applyFilters();
       });
     }
 
-    // টেবিলের নাম বড় হলে ডিজাইন যেন না ভাঙে তার জন্য (max-width এবং word-wrap) আপডেট করা হয়েছে
+    function setFilter(filterType, btnElement) {
+      currentFilter = filterType;
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      btnElement.classList.add('active');
+      applyFilters();
+    }
+
+    // উন্নত সার্চ ও ফিল্টার ফাংশন
+    function applyFilters() {
+      const rawQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      const normQuery = normalizeDigits(rawQuery);
+
+      const filtered = allClients.filter(c => {
+        const due = (c.contract || 0) - (c.paid || 0);
+        const caseVal = (c.caseNo || c.subject || "").trim();
+
+        if (currentFilter === 'due' && due <= 0) return false;
+        if (currentFilter === 'paid' && due > 0) return false;
+        if (currentFilter === 'nocase' && (caseVal !== "" && caseVal !== "-")) return false;
+
+        if (!rawQuery) return true;
+
+        const searchableText = [
+          c.name || '',
+          c.mobile || '',
+          c.nid || '',
+          c.mouja || '',
+          c.appNo || '',
+          caseVal,
+          c.partners || '',
+          getClientDateISO(c),
+          formatDisplayDate(getClientDateISO(c))
+        ].join(' ').toLowerCase();
+
+        const normSearchableText = normalizeDigits(searchableText);
+
+        return searchableText.includes(rawQuery) || normSearchableText.includes(normQuery);
+      });
+
+      renderTable(filtered);
+    }
+
     function renderTable(data) {
       const tbody = document.getElementById('tableBody'); tbody.innerHTML = '';
       if(data.length === 0) { tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 30px; color: var(--text-muted);">কোনো ডেটা পাওয়া যায়নি!</td></tr>`; return; }
 
       data.forEach((c, i) => {
-        const due = (c.contract || 0) - (c.paid || 0); const actualCaseNo = c.caseNo || c.subject || "-";
+        const due = (c.contract || 0) - (c.paid || 0);
+        const actualCaseNo = c.caseNo || c.subject || "-";
+        const displayDate = formatDisplayDate(getClientDateISO(c));
+        
         let avatar = c.photoUrl ? `<img src="${c.photoUrl}" class="client-avatar">` : `<div class="client-avatar"><i class="fa-solid fa-user"></i></div>`;
         let sBadge = due > 0 ? `<span class="status-badge status-due">বকেয়া</span>` : `<span class="status-badge status-paid">পরিশোধিত</span>`;
         
         tbody.innerHTML += `
           <tr>
-            <td><strong style="color: var(--text-muted);">#${i + 1}</strong></td>
             <td>
-              <div style="display:flex; align-items:center; gap:12px;">
-                ${avatar} 
-                <strong class="client-name-text">${c.name || "-"}</strong>
-              </div>
+              <strong style="color: #e2e8f0; font-size: 16px;">#${i + 1}</strong><br>
+              <span class="date-tag"><i class="fa-regular fa-calendar"></i> ${displayDate}</span>
             </td>
-            <td>${c.mouja ? `<strong style="color:#e2e8f0;">মৌজা:</strong> ${c.mouja}<br>` : ''} <span style="font-size:12px; color:var(--text-muted);">NID: ${c.nid || "-"}</span></td>
+            <td><div style="display:flex; align-items:center; gap:12px;">${avatar} <span class="client-name-text">${c.name || "-"}</span></div></td>
+            <td>${c.mouja ? `<span class="mouja-text">মৌজা: ${c.mouja}</span><br>` : ''} <span class="nid-text">NID: ${c.nid || "-"}</span></td>
             <td><div class="app-no-highlight">${c.appNo || "-"}</div><div class="case-no-badge">কেস নং: ${actualCaseNo}</div></td>
-            <td>${sBadge}<br><span style="color:#34d399; font-weight:bold; font-size:13px;">জমা: ৳${c.paid || 0}</span><br><span style="${due > 0 ? 'color:#f87171; font-weight:bold;' : 'color:#34d399;'} font-size:13px;">বকেয়া: ৳${due}</span></td>
+            <td>${sBadge}<br><span style="color:#6ee7b7; font-weight:700; font-size:14.5px;">জমা: ৳${c.paid || 0}</span><br><span style="${due > 0 ? 'color:#fca5a5; font-weight:700;' : 'color:#6ee7b7;'} font-size:14.5px;">বকেয়া: ৳${due}</span></td>
             <td>
-              <button class="action-btn btn-view" onclick='openViewModal(${JSON.stringify(c).replace(/'/g, "&apos;")})'><i class="fa-solid fa-eye"></i></button>
-              <button class="action-btn btn-edit" onclick='openEditModal(${JSON.stringify(c).replace(/'/g, "&apos;")})'><i class="fa-solid fa-pen"></i></button>
-              <button class="action-btn btn-delete" onclick="deleteData('${c.id}')"><i class="fa-solid fa-trash"></i></button>
+              <button class="action-btn btn-view" title="বিস্তারিত দেখুন" onclick='openViewModal(${JSON.stringify(c).replace(/'/g, "&apos;")})'><i class="fa-solid fa-eye"></i></button>
+              <button class="action-btn btn-edit" title="তথ্য আপডেট" onclick='openEditModal(${JSON.stringify(c).replace(/'/g, "&apos;")})'><i class="fa-solid fa-pen"></i></button>
+              <button class="action-btn btn-delete" title="মুছে ফেলুন" onclick="deleteData('${c.id}')"><i class="fa-solid fa-trash"></i></button>
+              <button class="action-btn btn-whatsapp" title="WhatsApp মেসেজ" onclick="sendWhatsApp('${c.mobile || ''}', '${c.name || ''}', '${c.appNo || ''}', '${actualCaseNo}', ${due})"><i class="fa-brands fa-whatsapp"></i></button>
             </td>
           </tr>`;
       });
     }
 
-    function searchClients() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      renderTable(allClients.filter(c => (c.name||'').toLowerCase().includes(query) || (c.mobile||'').includes(query) || (c.appNo||'').toLowerCase().includes(query) || (c.caseNo||c.subject||'').toLowerCase().includes(query)));
-    }
-
     function openEditModal(c) {
-      document.getElementById('eId').value = c.id; document.getElementById('eName').value = c.name || ''; document.getElementById('eMobile').value = c.mobile || ''; document.getElementById('eNid').value = c.nid || ''; document.getElementById('eMouja').value = c.mouja || ''; document.getElementById('eAppNo').value = c.appNo || ''; document.getElementById('eCaseNo').value = c.caseNo || c.subject || ''; document.getElementById('ePartners').value = c.partners || ''; document.getElementById('eContract').value = c.contract || 0; document.getElementById('ePaid').value = c.paid || 0;
-      document.getElementById('ePhoto').value = ""; document.getElementById('eKhatian').value = ""; document.getElementById('eDcr').value = "";
+      document.getElementById('eId').value = c.id; 
+      document.getElementById('eWorkDate').value = getClientDateISO(c) || getTodayDateISO();
+      document.getElementById('eName').value = c.name || '';
+      document.getElementById('eMobile').value = c.mobile || ''; 
+      document.getElementById('eNid').value = c.nid || '';
+      document.getElementById('eMouja').value = c.mouja || ''; 
+      document.getElementById('eAppNo').value = c.appNo || '';
+      document.getElementById('eCaseNo').value = c.caseNo || c.subject || '';
+      document.getElementById('ePartners').value = c.partners || '';
+      document.getElementById('eContract').value = c.contract || 0; 
+      document.getElementById('ePaid').value = c.paid || 0;
+      
+      document.getElementById('ePhoto').value = "";
+      document.getElementById('eKhatian').value = "";
+      document.getElementById('eDcr').value = "";
+      
       document.getElementById('editModal').style.display = 'flex';
     }
 
+    // Edit Client
     document.getElementById('editForm').addEventListener('submit', async function(e) {
-      e.preventDefault(); const btn = document.getElementById('editSubmitBtn'); btn.disabled = true;
+      e.preventDefault(); 
+      const btn = document.getElementById('editSubmitBtn'); 
+      btn.disabled = true;
+      
       try {
         let updateData = {
-          name: document.getElementById('eName').value, mobile: document.getElementById('eMobile').value, nid: document.getElementById('eNid').value,
-          mouja: document.getElementById('eMouja').value, appNo: document.getElementById('eAppNo').value, caseNo: document.getElementById('eCaseNo').value,
-          partners: document.getElementById('ePartners').value, contract: parseFloat(document.getElementById('eContract').value) || 0, paid: parseFloat(document.getElementById('ePaid').value) || 0
+          workDate: document.getElementById('eWorkDate').value || getTodayDateISO(),
+          name: document.getElementById('eName').value.trim(), 
+          mobile: document.getElementById('eMobile').value.trim(), 
+          nid: document.getElementById('eNid').value.trim(),
+          mouja: document.getElementById('eMouja').value.trim(), 
+          appNo: document.getElementById('eAppNo').value.trim(), 
+          caseNo: document.getElementById('eCaseNo').value.trim(),
+          partners: document.getElementById('ePartners').value.trim(),
+          contract: parseFloat(document.getElementById('eContract').value) || 0, 
+          paid: parseFloat(document.getElementById('ePaid').value) || 0
         };
-        const pFile = document.getElementById('ePhoto').files[0]; const kFile = document.getElementById('eKhatian').files[0]; const dFile = document.getElementById('eDcr').files[0];
         
-        if (pFile) { btn.innerHTML = 'ছবি আপডেট হচ্ছে...'; updateData.photoUrl = await uploadToCloudinary(await compressImage(pFile), (p) => { btn.innerHTML = `ছবি (${p}%)...`; }); }
-        if (kFile) { btn.innerHTML = 'খতিয়ান আপডেট হচ্ছে...'; updateData.khatianUrl = await uploadToCloudinary(kFile, (p) => { btn.innerHTML = `খতিয়ান (${p}%)...`; }); }
-        if (dFile) { btn.innerHTML = 'ডিসিআর আপডেট হচ্ছে...'; updateData.dcrUrl = await uploadToCloudinary(dFile, (p) => { btn.innerHTML = `ডিসিআর (${p}%)...`; }); }
+        const pFile = document.getElementById('ePhoto').files[0];
+        const kFile = document.getElementById('eKhatian').files[0];
+        const dFile = document.getElementById('eDcr').files[0];
+        
+        if (pFile) {
+          btn.innerHTML = 'ছবি আপডেট হচ্ছে (0%)...';
+          updateData.photoUrl = await uploadToCloudinary(await compressImage(pFile), (p) => { btn.innerHTML = `ছবি আপডেট হচ্ছে (${p}%)...`; });
+        }
+        if (kFile) {
+          btn.innerHTML = 'খতিয়ান আপডেট হচ্ছে (0%)...';
+          updateData.khatianUrl = await uploadToCloudinary(kFile, (p) => { btn.innerHTML = `খতিয়ান আপডেট হচ্ছে (${p}%)...`; });
+        }
+        if (dFile) {
+          btn.innerHTML = 'ডিসিআর আপডেট হচ্ছে (0%)...';
+          updateData.dcrUrl = await uploadToCloudinary(dFile, (p) => { btn.innerHTML = `ডিসিআর আপডেট হচ্ছে (${p}%)...`; });
+        }
         
         btn.innerHTML = 'ডেটাবেস আপডেট হচ্ছে...';
         await db.collection("clients").doc(document.getElementById('eId').value).update(updateData);
         closeModal('editModal');
-      } catch (error) { alert("ব্যর্থ: " + error.message); } finally { btn.innerHTML = 'আপডেট করুন'; btn.disabled = false; }
+      } catch (error) { 
+        alert("ব্যর্থ: " + error.message); 
+      } finally { 
+        btn.innerHTML = 'আপডেট করুন'; 
+        btn.disabled = false; 
+      }
     });
 
     function openViewModal(data) {
-      const due = (data.contract || 0) - (data.paid || 0); const actualCaseNo = data.caseNo || data.subject || "-";
-      document.getElementById('vName').innerText = data.name || "-"; document.getElementById('vAppNo').innerText = data.appNo || "-"; document.getElementById('vMobile').innerText = data.mobile || "-"; document.getElementById('vNid').innerText = data.nid || "-"; document.getElementById('vMouja').innerText = data.mouja || "-"; document.getElementById('vPartners').innerText = data.partners || "নেই"; document.getElementById('vCaseNo').innerText = actualCaseNo; document.getElementById('vTotal').innerText = data.contract || "0"; document.getElementById('vPaid').innerText = data.paid || "0"; document.getElementById('vDueText').innerText = `৳${due}`;
+      const due = (data.contract || 0) - (data.paid || 0);
+      const actualCaseNo = data.caseNo || data.subject || "-";
+      const displayDate = formatDisplayDate(getClientDateISO(data));
+      
+      document.getElementById('vName').innerText = data.name || "-"; 
+      document.getElementById('vAppNo').innerText = data.appNo || "-";
+      document.getElementById('vWorkDate').innerText = displayDate;
+      document.getElementById('vMobile').innerText = data.mobile || "-"; 
+      document.getElementById('vNid').innerText = data.nid || "-";
+      document.getElementById('vMouja').innerText = data.mouja || "-"; 
+      document.getElementById('vPartners').innerText = data.partners || "নেই";
+      document.getElementById('vCaseNo').innerText = actualCaseNo;
+      document.getElementById('vTotal').innerText = data.contract || "0"; 
+      document.getElementById('vPaid').innerText = data.paid || "0";
+      document.getElementById('vDueText').innerText = `৳${due}`;
+
       document.getElementById('vPhotoContainer').innerHTML = data.photoUrl ? `<img src="${data.photoUrl}" style="width:75px; height:75px; border-radius:50%; object-fit:cover; border:2px solid var(--primary); box-shadow: 0 0 15px rgba(168,85,247,0.4);">` : `<div style="width:75px; height:75px; border-radius:50%; background:rgba(0,0,0,0.3); border:2px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:35px; color:var(--text-muted);"><i class="fa-solid fa-user"></i></div>`;
+
       let linksHTML = '';
-      if(data.khatianUrl) linksHTML += `<a href="${data.khatianUrl}" target="_blank" class="btn-primary" style="flex:1; text-align:center; text-decoration:none; padding:10px; font-size:14px; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);"><i class="fa-solid fa-file-pdf"></i> খতিয়ান</a>`;
-      if(data.dcrUrl) linksHTML += `<a href="${data.dcrUrl}" target="_blank" class="btn-primary" style="flex:1; text-align:center; text-decoration:none; background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7; padding:10px; font-size:14px;"><i class="fa-solid fa-file-image"></i> ডিসিআর</a>`;
+      if(data.khatianUrl) linksHTML += `<a href="${data.khatianUrl}" target="_blank" class="btn-primary" style="flex:1; text-align:center; text-decoration:none; padding:10px; font-size:15px; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);"><i class="fa-solid fa-file-pdf"></i> খতিয়ান</a>`;
+      if(data.dcrUrl) linksHTML += `<a href="${data.dcrUrl}" target="_blank" class="btn-primary" style="flex:1; text-align:center; text-decoration:none; background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4); color: #6ee7b7; padding:10px; font-size:15px;"><i class="fa-solid fa-file-image"></i> ডিসিআর</a>`;
       document.getElementById('vLinks').innerHTML = linksHTML;
-      let dataEncoded = encodeURIComponent(JSON.stringify({...data, actualCaseNo, due}));
+
+      let dataEncoded = encodeURIComponent(JSON.stringify({...data, actualCaseNo, due, displayDate}));
+      
       document.getElementById('proActionsContainer').innerHTML = `
-        <button style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 14px; transition:0.3s;" onclick="sendWhatsApp('${data.mobile}', '${data.name}', '${data.appNo}', '${actualCaseNo}', ${due})"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
-        <button style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 14px; transition:0.3s;" onclick="sendNormalSMS('${data.mobile}', '${data.name}', '${data.appNo}', '${actualCaseNo}', ${due})"><i class="fa-solid fa-comment-sms"></i> SMS পাঠান</button>
-        <button style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: white; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 14px; transition:0.3s;" onclick="printReceipt('${dataEncoded}')"><i class="fa-solid fa-print"></i> রসিদ</button>
+        <button style="background: linear-gradient(135deg, #22c55e, #16a34a); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 15px; transition:0.3s; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" onclick="sendWhatsApp('${data.mobile}', '${data.name}', '${data.appNo}', '${actualCaseNo}', ${due})"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+        
+        <button style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 15px; transition:0.3s; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" onclick="sendNormalSMS('${data.mobile}', '${data.name}', '${data.appNo}', '${actualCaseNo}', ${due})"><i class="fa-solid fa-comment-sms"></i> SMS পাঠান</button>
+        
+        <button style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); color: white; padding: 12px; border-radius: 8px; cursor: pointer; flex: 1; font-weight: bold; font-size: 15px; transition:0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" onclick="printReceipt('${dataEncoded}')"><i class="fa-solid fa-print"></i> রসিদ</button>
       `;
       document.getElementById('viewModal').style.display = 'flex';
     }
 
+    // স্মার্ট SMS মেসেজ
     function sendNormalSMS(mobile, name, appNo, caseNo, due) {
       if(!mobile) return alert("মোবাইল নম্বর দেওয়া নেই!");
-      let msg = `আসসালামু আলাইকুম ${name}, আপনার বিশ্বস্ত প্রতিষ্ঠান 'কাওসার ডিজিটাল সেবা' থেকে আপনার প্রদত্ত কাজটির সর্বশেষ আপডেট জানানো হচ্ছে: ▪️ আবেদন নং: ${appNo} ▪️ বর্তমান অবস্থা: কেসটি ${caseNo} হওয়ার সম্ভাবনা রয়েছে। ▪️ বর্তমান বকেয়া: ${due} টাকা। আপনার কাজটির বিষয়ে আমরা সবসময় যত্নশীল। ধন্যবাদ!`;
-      window.open(`sms:${mobile}?body=${encodeURIComponent(msg)}`, '_self');
+      let cleanMobile = normalizeDigits(mobile).replace(/[^0-9]/g, '');
+      let caseStatusText = (caseNo && caseNo !== "-") ? `কেস নং ${caseNo} চলমান রয়েছে।` : `আবেদনটি প্রক্রিয়াধীন রয়েছে।`;
+      let dueText = due > 0 ? `বর্তমান বকেয়া: ${due} টাকা।` : `আপনার ফি সম্পূর্ণ পরিশোধিত।`;
+      
+      let msg = `আসসালামু আলাইকুম ${name}, আপনার বিশ্বস্ত প্রতিষ্ঠান 'কাওসার ডিজিটাল সেবা' থেকে আপনার কাজটির সর্বশেষ আপডেট: আবেদন নং: ${appNo || '-'}, বর্তমান অবস্থা: ${caseStatusText} ${dueText} বিস্তারিত জানতে আমাদের সাথে যোগাযোগ করুন। ধন্যবাদ!`;
+      window.open(`sms:${cleanMobile}?body=${encodeURIComponent(msg)}`, '_self');
     }
 
+    // স্মার্ট WhatsApp মেসেজ
     function sendWhatsApp(mobile, name, appNo, caseNo, due) {
-      if(!mobile) return alert("মোবাইল নম্বর দেওয়া নেই!"); let bdMobile = mobile.startsWith('0') ? '88' + mobile : mobile;
-      let msg = `আসসালামু আলাইকুম ${name},\nআপনার বিশ্বস্ত প্রতিষ্ঠান *'কাওসার ডিজিটাল সেবা'* থেকে আপনার প্রদত্ত কাজটির সর্বশেষ আপডেট জানানো হচ্ছে:\n\n▪️ *আবেদন নং:* ${appNo}\n▪️ *বর্তমান অবস্থা:* কেসটি ${caseNo} হওয়ার সম্ভাবনা রয়েছে।\n▪️ *বর্তমান বকেয়া:* ${due} টাকা।\n\nআপনার কাজটির বিষয়ে আমরা সবসময় যত্নশীল। ধন্যবাদ!`;
+      if(!mobile) return alert("মোবাইল নম্বর দেওয়া নেই!");
+      let cleanMobile = normalizeDigits(mobile).replace(/[^0-9]/g, '');
+      let bdMobile = cleanMobile.startsWith('0') ? '88' + cleanMobile : cleanMobile;
+      let caseStatusText = (caseNo && caseNo !== "-") ? `কেস নং *${caseNo}* চলমান রয়েছে।` : `আবেদনটি প্রক্রিয়াধীন রয়েছে।`;
+      let dueText = due > 0 ? `▪️ *বর্তমান বকেয়া:* ${due} টাকা।` : `▪️ *পেমেন্ট স্ট্যাটাস:* সম্পূর্ণ পরিশোধিত ✅`;
+
+      let msg = `আসসালামু আলাইকুম *${name}*,
+আপনার বিশ্বস্ত প্রতিষ্ঠান *'কাওসার ডিজিটাল সেবা'* থেকে আপনার প্রদত্ত কাজটির সর্বশেষ আপডেট জানানো হচ্ছে:
+
+▪️ *আবেদন নং:* ${appNo || '-'}
+▪️ *বর্তমান অবস্থা:* ${caseStatusText}
+${dueText}
+
+আপনার কাজটির বিষয়ে আমরা সবসময় যত্নশীল। পরবর্তী করণীয় ও বিস্তারিত জানতে অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন। ধন্যবাদ!`;
       window.open(`https://wa.me/${bdMobile}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
+    // মানি রসিদ প্রিন্ট
     function printReceipt(dataStr) {
       try {
-        const data = JSON.parse(decodeURIComponent(dataStr)); const printWindow = window.open('', '_blank'); const today = new Date().toLocaleDateString('bn-BD');
+        const data = JSON.parse(decodeURIComponent(dataStr));
+        const printWindow = window.open('', '_blank');
+        const receiptDate = data.displayDate || new Date().toLocaleDateString('bn-BD');
+        
         let html = `
         <html>
         <head>
           <title>মানি রসিদ - ${data.name}</title>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
           <style>
-            body { font-family: 'Segoe UI', Arial, sans-serif; padding: 40px; color: #000; background: #fff; }
+            body { font-family: 'Noto Sans Bengali', 'Kalpurush', 'SolaimanLipi', Arial, sans-serif; padding: 40px; color: #000; background: #fff; }
             .receipt-container { max-width: 800px; margin: 0 auto; border: 2px solid #333; padding: 40px; position: relative; }
             .header { text-align: center; border-bottom: 2px dashed #ccc; padding-bottom: 20px; margin-bottom: 20px; }
             .header h1 { margin: 0; color: #111; font-size: 32px; font-weight: bold; }
-            .header p { margin: 5px 0 0 0; color: #555; font-size: 16px; }
-            h3.title { text-align: center; text-decoration: underline; font-size: 20px; margin-bottom: 30px; }
+            .header p { margin: 5px 0 0 0; color: #333; font-size: 16px; }
+            h3.title { text-align: center; text-decoration: underline; font-size: 22px; margin-bottom: 30px; }
             .info-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
             .info-table td { padding: 12px; border: 1px solid #ddd; font-size: 16px; }
+            .info-table td strong { color: #111; }
             .amount-section { display: flex; justify-content: flex-end; margin-top: 20px; }
             .amount-box { border: 2px solid #333; padding: 20px 40px; text-align: right; font-size: 18px; border-radius: 8px;}
+            .amount-box p { margin: 8px 0; }
             .footer { margin-top: 80px; display: flex; justify-content: space-between; }
             .signature { border-top: 1px solid #000; padding-top: 5px; width: 200px; text-align: center; font-weight: bold;}
+            @media print {
+              body { padding: 0; }
+              .receipt-container { border: none; padding: 10px; }
+            }
           </style>
         </head>
         <body>
           <div class="receipt-container">
-            <div class="header"><h1>কাওসার ডিজিটাল সেবা</h1><p>প্রোঃ মোঃ কাওসার আলী</p><p>ঠিকানা: দারুশা বাজার,কর্ণহার,পবা,রাজশাহী।</p><p>তারিখ: ${today}</p></div>
+            <div class="header">
+              <h1>কাওসার ডিজিটাল সেবা</h1>
+              <p>প্রোঃ মোঃ কাওসার আলী</p>
+              <p>ঠিকানা: দারুশা বাজার, কর্ণহার, পবা, রাজশাহী।</p>
+              <p>তারিখ: ${receiptDate}</p>
+            </div>
+            
             <h3 class="title">মানি রসিদ</h3>
+            
             <table class="info-table">
-              <tr><td><strong>নাম:</strong> ${data.name || '-'}</td><td><strong>মোবাইল:</strong> ${data.mobile || '-'}</td></tr>
-              <tr><td><strong>মৌজা:</strong> ${data.mouja || '-'}</td><td><strong>এনআইডি:</strong> ${data.nid || '-'}</td></tr>
-              <tr><td><strong>আবেদন নং:</strong> ${data.appNo || '-'}</td><td><strong>কেস নম্বর:</strong> ${data.actualCaseNo || '-'}</td></tr>
+              <tr>
+                <td><strong>নাম:</strong> ${data.name || '-'}</td>
+                <td><strong>মোবাইল:</strong> ${data.mobile || '-'}</td>
+              </tr>
+              <tr>
+                <td><strong>মৌজা:</strong> ${data.mouja || '-'}</td>
+                <td><strong>এনআইডি:</strong> ${data.nid || '-'}</td>
+              </tr>
+              <tr>
+                <td><strong>আবেদন নং:</strong> ${data.appNo || '-'}</td>
+                <td><strong>কেস নম্বর:</strong> ${data.actualCaseNo || '-'}</td>
+              </tr>
             </table>
-            <div class="amount-section"><div class="amount-box"><p><strong>সর্বমোট ফি:</strong> ৳ ${data.contract || 0}</p><p><strong>জমা অর্থ:</strong> ৳ ${data.paid || 0}</p><hr style="border-top: 1px solid #333; margin: 15px 0;"><p style="font-size: 22px; font-weight: bold;">বকেয়া: ৳ ${data.due || 0}</p></div></div>
-            <div class="footer"><div class="signature">গ্রাহকের স্বাক্ষর</div><div class="signature">কর্তৃপক্ষের স্বাক্ষর</div></div>
+
+            <div class="amount-section">
+              <div class="amount-box">
+                <p><strong>সর্বমোট ফি:</strong> ৳ ${data.contract || 0}</p>
+                <p><strong>জমা অর্থ:</strong> ৳ ${data.paid || 0}</p>
+                <hr style="border-top: 1px solid #333; margin: 15px 0;">
+                <p style="font-size: 22px; font-weight: bold;">বকেয়া: ৳ ${data.due || 0}</p>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div class="signature">গ্রাহকের স্বাক্ষর</div>
+              <div class="signature">কর্তৃপক্ষের স্বাক্ষর</div>
+            </div>
           </div>
-          <script>window.onload = function() { window.print(); window.onafterprint = function() { window.close(); } };<\/script>
+          <script>
+            window.onload = function() { 
+              window.print(); 
+              window.onafterprint = function() { window.close(); } 
+            };
+          <\/script>
         </body>
         </html>`;
-        printWindow.document.write(html); printWindow.document.close();
-      } catch (e) { alert("রসিদ তৈরি করতে সমস্যা হয়েছে: " + e.message); }
+        
+        printWindow.document.write(html);
+        printWindow.document.close();
+      } catch (e) {
+        alert("রসিদ তৈরি করতে সমস্যা হয়েছে: " + e.message);
+      }
     }
 
+    // নিরাপদ ডিলিট ফাংশন
     async function deleteData(id) {
-      if(confirm("আপনি কি নিশ্চিতভাবে এই ক্লায়েন্টের ডেটা এবং আপলোড করা ফাইল মুছে ফেলতে চান?")) {
+      const confirmText = prompt("সতর্কতা: আপনি কি নিশ্চিতভাবে এই ক্লায়েন্টের সব তথ্য ও ফাইল মুছে ফেলতে চান? এটি আর ফেরত পাওয়া যাবে না।\n\nমুছে ফেলতে নিচে বড় হাতের অক্ষরে DELETE লিখে OK চাপুন:");
+      if (confirmText === "DELETE") {
         try {
-          const doc = await db.collection("clients").doc(id).get(); const data = doc.data();
+          const doc = await db.collection("clients").doc(id).get();
+          const data = doc.data();
+
           if (data) {
-            if (data.photoUrl) await deleteFromCloudinary(data.photoUrl); if (data.khatianUrl) await deleteFromCloudinary(data.khatianUrl); if (data.dcrUrl) await deleteFromCloudinary(data.dcrUrl);
-            await db.collection("clients").doc(id).delete(); alert("ডেটা মুছে ফেলা হয়েছে!");
+            if (data.photoUrl) await deleteFromCloudinary(data.photoUrl);
+            if (data.khatianUrl) await deleteFromCloudinary(data.khatianUrl);
+            if (data.dcrUrl) await deleteFromCloudinary(data.dcrUrl);
+            
+            await db.collection("clients").doc(id).delete();
+            alert("ডেটা এবং ফাইল সফলভাবে মুছে ফেলা হয়েছে!");
           }
-        } catch (error) { alert("ডিলিট করতে সমস্যা হয়েছে: " + error.message); }
+        } catch (error) {
+          alert("ডিলিট করতে সমস্যা হয়েছে: " + error.message);
+        }
+      } else if (confirmText !== null) {
+        alert("ভুল শব্দ লিখেছেন! ক্লায়েন্টের তথ্য নিরাপদ আছে।");
       }
     }
   </script>
